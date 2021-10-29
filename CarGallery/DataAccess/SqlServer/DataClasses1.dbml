@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CarGalleryDb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=STHQ0126-15;Initial Catalog=CarGalleryDb;User ID=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="CarGallery.Properties.Settings" SettingsPropertyName="CarGalleryDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BanTypes" Member="BanTypes">
+    <Type Name="BanType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="BanType_Car" Member="Cars" ThisKey="Id" OtherKey="BanType_Id" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brands" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Brand_Car" Member="Cars" ThisKey="Id" OtherKey="Brand_Id" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CarColors" Member="CarColors">
+    <Type Name="CarColor">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="CarColor_Car" Member="Cars" ThisKey="Id" OtherKey="CarColors_Id" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cars" Member="Cars">
+    <Type Name="Car">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Brand_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BanType_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CarColors_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PetrolTypes_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsNew" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Milage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Release_Date" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ImagePath_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BanType_Car" Member="BanType" ThisKey="BanType_Id" OtherKey="Id" Type="BanType" IsForeignKey="true" />
+      <Association Name="Brand_Car" Member="Brand" ThisKey="Brand_Id" OtherKey="Id" Type="Brand" IsForeignKey="true" />
+      <Association Name="CarColor_Car" Member="CarColor" ThisKey="CarColors_Id" OtherKey="Id" Type="CarColor" IsForeignKey="true" />
+      <Association Name="ImagePath_Car" Member="ImagePath" ThisKey="ImagePath_Id" OtherKey="Id" Type="ImagePath" IsForeignKey="true" />
+      <Association Name="PetrolType_Car" Member="PetrolType" ThisKey="PetrolTypes_Id" OtherKey="Id" Type="PetrolType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImagePath" Member="ImagePaths">
+    <Type Name="ImagePath">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="ImagePath_Car" Member="Cars" ThisKey="Id" OtherKey="ImagePath_Id" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PetrolTypes" Member="PetrolTypes">
+    <Type Name="PetrolType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="PetrolType_Car" Member="Cars" ThisKey="Id" OtherKey="PetrolTypes_Id" Type="Car" />
+    </Type>
+  </Table>
+</Database>

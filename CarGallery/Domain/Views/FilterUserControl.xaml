@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="CarGallerry.Views.FilterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarGallerry.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="400">
+    <StackPanel Background="Wheat">
+        <WrapPanel Margin="0,0,0,20">
+            <Label Content="Marka " 
+                   FontSize="25"
+                   FontFamily="comic sans ms"></Label>
+            <ComboBox Name="markaCmbbx"
+                      FontSize="25"
+                      Width="200"
+                      Margin="10,4,0,4"></ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Margin="0,0,0,20">
+            <Label Content="Ban Novu " 
+                   FontSize="25"
+                   FontFamily="comic sans ms"></Label>
+            <ComboBox Name="banTypeCmbbx"
+                      FontSize="25"
+                      Width="200"
+                      Margin="10,4,0,4"></ComboBox>
+        </WrapPanel>
+
+        <WrapPanel Margin="0,0,0,20">
+            <Label Content="Reng "
+                   FontSize="25"
+                   FontFamily="comic sans ms"
+                   ></Label>
+            <ComboBox Name="colorCmbbx"
+                      FontSize="25"
+                      Width="200"
+                      Margin="10,4,0,4"></ComboBox>
+        </WrapPanel>
+        <WrapPanel Margin="0,0,0,20">
+            <Label Content="Yurus "
+                   FontSize="25"
+                   FontFamily="comic sans ms"
+                   ></Label>
+            <Label Content="min"
+                   FontSize="15"
+                   FontFamily="comic sans ms"
+                   VerticalAlignment="Bottom"></Label>
+            <TextBox x:Name="minTxtbx"
+                     Width="50"
+                     FontSize="20"
+                     Margin="10,4,0,4"></TextBox>
+            <Label Content="max"
+                   FontSize="15"
+                   FontFamily="comic sans ms"
+                   VerticalAlignment="Bottom"></Label>
+            <TextBox x:Name="maxTxtbx"
+                     Width="50"
+                     FontSize="20"
+                     Margin="10,4,0,4"></TextBox>
+        </WrapPanel>
+        <WrapPanel Margin="0,0,0,20">
+            <Label Content="Qiymet "
+                   FontSize="25"
+                   FontFamily="comic sans ms"
+                   ></Label>
+            <Label Content="min"
+                   FontSize="15"
+                   FontFamily="comic sans ms"
+                   VerticalAlignment="Bottom"></Label>
+            <TextBox x:Name="minPriceTxtbx"
+                     Width="50"
+                     FontSize="20"
+                     Margin="10,4,0,4"></TextBox>
+            <Label Content="max"
+                   FontSize="15"
+                   FontFamily="comic sans ms"
+                   VerticalAlignment="Bottom"></Label>
+            <TextBox x:Name="maxPriceTxtbx"
+                     Width="50"
+                     FontSize="20"
+                     Margin="10,4,0,4"></TextBox>
+        </WrapPanel>
+        <WrapPanel Margin="0,0,0,20">
+            <RadioButton x:Name="newRadiobtn"
+                         Content="New  "
+                         IsChecked="True"
+                         FontSize="15"
+                         Margin="10,4,0,4"></RadioButton>
+            <RadioButton x:Name="oldRadioBtn"
+                         Content=" Old "
+                         FontSize="15"
+                         Margin="10,4,0,4"></RadioButton>
+        </WrapPanel>
+        <WrapPanel Margin="0,0,0,20">
+            <CheckBox x:Name="benzinCheckBox"
+                      VerticalAlignment="Center"
+                      FontSize="100"
+                      Margin="10,4,0,4"></CheckBox>
+            <Label Content="Benzin"
+                   VerticalContentAlignment="Bottom"
+                   FontSize="15"
+                   FontFamily="comic sans ms"></Label>
+            <CheckBox x:Name="dizelCheckBox"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Margin="10,4,0,4"></CheckBox>
+            <Label Content="Dizel"
+                   VerticalContentAlignment="Bottom"
+                   FontSize="15"
+                   FontFamily="comic sans ms"></Label>
+            <CheckBox x:Name="hybridCheckBox"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Margin="10,4,0,4"></CheckBox>
+            <Label Content="Hybrid"
+                   VerticalContentAlignment="Bottom"
+                   FontSize="15"
+                   FontFamily="comic sans ms"></Label>
+            <CheckBox x:Name="gasCheckBox"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Margin="10,4,0,4"></CheckBox>
+            <Label Content="Gas"
+                   VerticalContentAlignment="Bottom"
+                   FontSize="15"
+                   FontFamily="comic sans ms"></Label>
+            <CheckBox x:Name="electroCheckBox"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Margin="10,4,0,4"></CheckBox>
+            <Label Content="Electro"
+                   VerticalContentAlignment="Bottom"
+                   FontSize="15"
+                   FontFamily="comic sans ms"></Label>
+        </WrapPanel>
+        <Button Content="Axtar"
+                FontSize="30"
+                Width="200"
+                HorizontalAlignment="Left"
+                Margin="10,4,0,4"
+                FontFamily="comic sans ms"></Button>
+    </StackPanel>
+</UserControl>
