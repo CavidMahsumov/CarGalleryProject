@@ -25,7 +25,7 @@ namespace CarGallerry
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(this,new ImagePathRepository());
+            DataContext = new MainViewModel(this, new ImagePathRepository());
         }
     }
 }
