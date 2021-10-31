@@ -1,4 +1,5 @@
-﻿using CarGallery.Domain.Abstractions;
+﻿using CarGallerry.Domain.AdditionalClasses;
+using CarGallery.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,11 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class ImagePathRepository : IImagePathRepository
     {
+        public DataClasses1DataContext dataContext { get; set; }
+        public ImagePathRepository()
+        {
+            dataContext = new DataClasses1DataContext();
+        }
         public void AddData(ImagePath data)
         {
             throw new NotImplementedException();
@@ -22,7 +28,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<ImagePath> GetAllData()
         {
-            throw new NotImplementedException();
+            var images = from a in dataContext.ImagePaths
+                          select a;
+            return ObserverHelper.ToObservableCollection(images);
         }
 
         public ImagePath GetData(int id)

@@ -1,4 +1,5 @@
 ﻿using CarGallerry.Domain.ViewModels;
+using CarGallery.DataAccess.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace CarGallerry
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(this);
+            DataContext = new MainViewModel(this,new ImagePathRepository());
         }
     }
 }

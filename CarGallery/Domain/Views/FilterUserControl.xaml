@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CarGallerry.Views"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="400">
-    <StackPanel Background="Wheat">
+    <StackPanel Background="Red">
         <WrapPanel Margin="0,0,0,20">
             <Label Content="Marka " 
                    FontSize="25"
