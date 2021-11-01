@@ -18,17 +18,10 @@ namespace CarGallerry.Domain.ViewModels
         public RelayCommand FilterBtnCommand { get; set; }
         public IRepository<ImagePath> _repo { get; set; }
         public ObservableCollection<ImagePath> Images { get; set; }
-        private string  imagePath;
-
-        public string ImagePath
-        {
-            get { return imagePath; }
-            set { imagePath = value; OnPropertyChanged(); }
-        }
+    
 
         public MainViewModel(MainWindow mainWindow, IImagePathRepository repository)
         {
-            ImagePath = "https://github.com/CavidMahsumov/CarGalleryImages/blob/fa211f59be07c2c68a11729429ee44433ac4400f/BMW330.jpg?raw=true";
             Images = new ObservableCollection<ImagePath>();
             _repo = repository;
             filterUserControl = new FilterUserControl();
@@ -38,14 +31,7 @@ namespace CarGallerry.Domain.ViewModels
               });
             Images = _repo.GetAllData();
             ;
-            var fullFilePath = @"https://github.com/CavidMahsumov/CarGalleryImages/blob/fa211f59be07c2c68a11729429ee44433ac4400f/BMW330.jpg?raw=true";
-
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
-            bitmap.EndInit();
-
-            mainWindow.Image1.Source = bitmap;
+    
 
 
         }

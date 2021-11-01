@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CarGalleryDb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-6N8RPLPK;Initial Catalog=CarGalleryDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="CarGallery.Properties.Settings" SettingsPropertyName="CarGalleryDbConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.PetrolTypes" Member="PetrolTypes">
-    <Type Name="PetrolType">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Association Name="PetrolType_Car" Member="Cars" ThisKey="Id" OtherKey="PetrolTypes_Id" Type="Car" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=STHQ0126-16;Initial Catalog=CarGalleryDb;User ID=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="CarGallery.Properties.Settings" SettingsPropertyName="CarGalleryDbConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BanTypes" Member="BanTypes">
     <Type Name="BanType">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -43,8 +36,8 @@
       <Association Name="BanType_Car" Member="BanType" ThisKey="BanType_Id" OtherKey="Id" Type="BanType" IsForeignKey="true" />
       <Association Name="Brand_Car" Member="Brand" ThisKey="Brand_Id" OtherKey="Id" Type="Brand" IsForeignKey="true" />
       <Association Name="CarColor_Car" Member="CarColor" ThisKey="CarColors_Id" OtherKey="Id" Type="CarColor" IsForeignKey="true" />
-      <Association Name="PetrolType_Car" Member="PetrolType" ThisKey="PetrolTypes_Id" OtherKey="Id" Type="PetrolType" IsForeignKey="true" />
       <Association Name="ImagePath_Car" Member="ImagePath" ThisKey="ImagePath_Id" OtherKey="Id" Type="ImagePath" IsForeignKey="true" />
+      <Association Name="PetrolType_Car" Member="PetrolType" ThisKey="PetrolTypes_Id" OtherKey="Id" Type="PetrolType" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ImagePath" Member="ImagePaths">
@@ -52,6 +45,13 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Path" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="ImagePath_Car" Member="Cars" ThisKey="Id" OtherKey="ImagePath_Id" Type="Car" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PetrolTypes" Member="PetrolTypes">
+    <Type Name="PetrolType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="PetrolType_Car" Member="Cars" ThisKey="Id" OtherKey="PetrolTypes_Id" Type="Car" />
     </Type>
   </Table>
 </Database>

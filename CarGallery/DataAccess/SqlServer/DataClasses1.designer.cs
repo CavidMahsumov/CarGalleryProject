@@ -30,9 +30,6 @@ namespace CarGallery.DataAccess.SqlServer
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertPetrolType(PetrolType instance);
-    partial void UpdatePetrolType(PetrolType instance);
-    partial void DeletePetrolType(PetrolType instance);
     partial void InsertBanType(BanType instance);
     partial void UpdateBanType(BanType instance);
     partial void DeleteBanType(BanType instance);
@@ -48,10 +45,13 @@ namespace CarGallery.DataAccess.SqlServer
     partial void InsertImagePath(ImagePath instance);
     partial void UpdateImagePath(ImagePath instance);
     partial void DeleteImagePath(ImagePath instance);
+    partial void InsertPetrolType(PetrolType instance);
+    partial void UpdatePetrolType(PetrolType instance);
+    partial void DeletePetrolType(PetrolType instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString1, mappingSource)
+				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -78,14 +78,6 @@ namespace CarGallery.DataAccess.SqlServer
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<PetrolType> PetrolTypes
-		{
-			get
-			{
-				return this.GetTable<PetrolType>();
-			}
 		}
 		
 		public System.Data.Linq.Table<BanType> BanTypes
@@ -127,119 +119,13 @@ namespace CarGallery.DataAccess.SqlServer
 				return this.GetTable<ImagePath>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PetrolTypes")]
-	public partial class PetrolType : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Name;
-		
-		private EntitySet<Car> _Cars;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    #endregion
-		
-		public PetrolType()
-		{
-			this._Cars = new EntitySet<Car>(new Action<Car>(this.attach_Cars), new Action<Car>(this.detach_Cars));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		public System.Data.Linq.Table<PetrolType> PetrolTypes
 		{
 			get
 			{
-				return this._Id;
+				return this.GetTable<PetrolType>();
 			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PetrolType_Car", Storage="_Cars", ThisKey="Id", OtherKey="PetrolTypes_Id")]
-		public EntitySet<Car> Cars
-		{
-			get
-			{
-				return this._Cars;
-			}
-			set
-			{
-				this._Cars.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Cars(Car entity)
-		{
-			this.SendPropertyChanging();
-			entity.PetrolType = this;
-		}
-		
-		private void detach_Cars(Car entity)
-		{
-			this.SendPropertyChanging();
-			entity.PetrolType = null;
 		}
 	}
 	
@@ -617,9 +503,9 @@ namespace CarGallery.DataAccess.SqlServer
 		
 		private EntityRef<CarColor> _CarColor;
 		
-		private EntityRef<PetrolType> _PetrolType;
-		
 		private EntityRef<ImagePath> _ImagePath;
+		
+		private EntityRef<PetrolType> _PetrolType;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -652,8 +538,8 @@ namespace CarGallery.DataAccess.SqlServer
 			this._BanType = default(EntityRef<BanType>);
 			this._Brand = default(EntityRef<Brand>);
 			this._CarColor = default(EntityRef<CarColor>);
-			this._PetrolType = default(EntityRef<PetrolType>);
 			this._ImagePath = default(EntityRef<ImagePath>);
+			this._PetrolType = default(EntityRef<PetrolType>);
 			OnCreated();
 		}
 		
@@ -979,40 +865,6 @@ namespace CarGallery.DataAccess.SqlServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PetrolType_Car", Storage="_PetrolType", ThisKey="PetrolTypes_Id", OtherKey="Id", IsForeignKey=true)]
-		public PetrolType PetrolType
-		{
-			get
-			{
-				return this._PetrolType.Entity;
-			}
-			set
-			{
-				PetrolType previousValue = this._PetrolType.Entity;
-				if (((previousValue != value) 
-							|| (this._PetrolType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PetrolType.Entity = null;
-						previousValue.Cars.Remove(this);
-					}
-					this._PetrolType.Entity = value;
-					if ((value != null))
-					{
-						value.Cars.Add(this);
-						this._PetrolTypes_Id = value.Id;
-					}
-					else
-					{
-						this._PetrolTypes_Id = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PetrolType");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ImagePath_Car", Storage="_ImagePath", ThisKey="ImagePath_Id", OtherKey="Id", IsForeignKey=true)]
 		public ImagePath ImagePath
 		{
@@ -1043,6 +895,40 @@ namespace CarGallery.DataAccess.SqlServer
 						this._ImagePath_Id = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("ImagePath");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PetrolType_Car", Storage="_PetrolType", ThisKey="PetrolTypes_Id", OtherKey="Id", IsForeignKey=true)]
+		public PetrolType PetrolType
+		{
+			get
+			{
+				return this._PetrolType.Entity;
+			}
+			set
+			{
+				PetrolType previousValue = this._PetrolType.Entity;
+				if (((previousValue != value) 
+							|| (this._PetrolType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PetrolType.Entity = null;
+						previousValue.Cars.Remove(this);
+					}
+					this._PetrolType.Entity = value;
+					if ((value != null))
+					{
+						value.Cars.Add(this);
+						this._PetrolTypes_Id = value.Id;
+					}
+					else
+					{
+						this._PetrolTypes_Id = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PetrolType");
 				}
 			}
 		}
@@ -1179,6 +1065,120 @@ namespace CarGallery.DataAccess.SqlServer
 		{
 			this.SendPropertyChanging();
 			entity.ImagePath = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PetrolTypes")]
+	public partial class PetrolType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private EntitySet<Car> _Cars;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public PetrolType()
+		{
+			this._Cars = new EntitySet<Car>(new Action<Car>(this.attach_Cars), new Action<Car>(this.detach_Cars));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PetrolType_Car", Storage="_Cars", ThisKey="Id", OtherKey="PetrolTypes_Id")]
+		public EntitySet<Car> Cars
+		{
+			get
+			{
+				return this._Cars;
+			}
+			set
+			{
+				this._Cars.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Cars(Car entity)
+		{
+			this.SendPropertyChanging();
+			entity.PetrolType = this;
+		}
+		
+		private void detach_Cars(Car entity)
+		{
+			this.SendPropertyChanging();
+			entity.PetrolType = null;
 		}
 	}
 }
