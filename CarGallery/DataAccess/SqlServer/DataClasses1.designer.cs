@@ -51,7 +51,7 @@ namespace CarGallery.DataAccess.SqlServer
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString2, mappingSource)
+				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -491,7 +491,7 @@ namespace CarGallery.DataAccess.SqlServer
 		
 		private System.Nullable<int> _Milage;
 		
-		private System.DateTime _Release_Date;
+		private int _Release_Date;
 		
 		private System.Nullable<decimal> _Price;
 		
@@ -525,7 +525,7 @@ namespace CarGallery.DataAccess.SqlServer
     partial void OnIsNewChanged();
     partial void OnMilageChanging(System.Nullable<int> value);
     partial void OnMilageChanged();
-    partial void OnRelease_DateChanging(System.DateTime value);
+    partial void OnRelease_DateChanging(int value);
     partial void OnRelease_DateChanged();
     partial void OnPriceChanging(System.Nullable<decimal> value);
     partial void OnPriceChanged();
@@ -699,8 +699,8 @@ namespace CarGallery.DataAccess.SqlServer
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Release_Date", DbType="DateTime2 NOT NULL")]
-		public System.DateTime Release_Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Release_Date", DbType="Int NOT NULL")]
+		public int Release_Date
 		{
 			get
 			{

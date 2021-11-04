@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CarGalleryDb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=STHQ0126-16;Initial Catalog=CarGalleryDb;User ID=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="CarGallery.Properties.Settings" SettingsPropertyName="CarGalleryDbConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-6N8RPLPK;Initial Catalog=CarGalleryDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="CarGallery.Properties.Settings" SettingsPropertyName="CarGalleryDbConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BanTypes" Member="BanTypes">
     <Type Name="BanType">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -30,7 +30,7 @@
       <Column Name="PetrolTypes_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IsNew" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Milage" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Release_Date" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="Release_Date" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="ImagePath_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BanType_Car" Member="BanType" ThisKey="BanType_Id" OtherKey="Id" Type="BanType" IsForeignKey="true" />

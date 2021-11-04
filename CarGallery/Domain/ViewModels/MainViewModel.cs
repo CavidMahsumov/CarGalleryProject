@@ -1,11 +1,14 @@
 ﻿using CarGallerry.Commands;
+using CarGallerry.Domain.AdditionalClasses;
 using CarGallerry.Views;
 using CarGallery.DataAccess.SqlServer;
 using CarGallery.Domain.Abstractions;
+using CarGallery.Domain.AdditionalClasses;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Media.Imaging;
 using static System.Net.Mime.MediaTypeNames;
@@ -16,21 +19,29 @@ namespace CarGallerry.Domain.ViewModels
     {
         public FilterUserControl filterUserControl { get; set; }
         public RelayCommand FilterBtnCommand { get; set; }
-        public IRepository<ImagePath> _repo { get; set; }
+        public IRepository<Car> _repo { get; set; }
+        public ObservableCollection<Car> Cars { get; set; }
+        public CarsRepository carsRepository { get; set; }
         public ObservableCollection<ImagePath> Images { get; set; }
-    
+        public ObservableCollection<ImagesAndCars> ImagesAndCars { get; set; }
 
-        public MainViewModel(MainWindow mainWindow, IImagePathRepository repository)
+
+
+        public MainViewModel(MainWindow mainWindow, ICarsRepository repository)
         {
-            Images = new ObservableCollection<ImagePath>();
+            Cars = new ObservableCollection<Car>();
             _repo = repository;
             filterUserControl = new FilterUserControl();
             FilterBtnCommand = new RelayCommand((sender) =>
               {
                   mainWindow.userGrid.Children.Add(filterUserControl);
               });
-            Images = _repo.GetAllData();
+            carsRepository = new CarsRepository();
+            Cars = carsRepository.GetAllData();
+            Images = ObserverHelper.ToObservableCollection(carsRepository.GetAllData().Select(i => i.ImagePath));
             ;
+            ImagesAndCars = new ObservableCollection<ImagesAndCars>();
+
     
 
 
