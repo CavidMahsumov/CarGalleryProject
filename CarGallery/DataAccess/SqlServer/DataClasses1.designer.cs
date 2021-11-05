@@ -51,7 +51,7 @@ namespace CarGallery.DataAccess.SqlServer
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString1, mappingSource)
+				base(global::CarGallery.Properties.Settings.Default.CarGalleryDbConnectionString3, mappingSource)
 		{
 			OnCreated();
 		}

@@ -1,4 +1,5 @@
-﻿using CarGallery.Domain.Abstractions;
+﻿using CarGallerry.Domain.AdditionalClasses;
+using CarGallery.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,11 @@ namespace CarGallery.DataAccess.SqlServer
 {
     public class CarColorsRepository : ICarColorsRepository
     {
+        public CarColorsRepository()
+        {
+            dataContext = new DataClasses1DataContext();
+        }
+        public DataClasses1DataContext dataContext { get; set; }
         public void AddData(CarColor data)
         {
             throw new NotImplementedException();
@@ -22,7 +28,9 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<CarColor> GetAllData()
         {
-            throw new NotImplementedException();
+            var color = from c in dataContext.CarColors
+                        select c;
+            return ObserverHelper.ToObservableCollection(color);
         }
 
         public CarColor GetData(int id)

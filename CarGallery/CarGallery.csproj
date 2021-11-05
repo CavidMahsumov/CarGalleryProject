@@ -75,8 +75,8 @@
     <Compile Include="DataAccess\SqlServer\CarColorsRepository.cs" />
     <Compile Include="DataAccess\SqlServer\CarsRepository.cs" />
     <Compile Include="DataAccess\SqlServer\DataClasses1.designer.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\SqlServer\ImagePathRepository.cs" />
@@ -88,7 +88,6 @@
     <Compile Include="Domain\Abstractions\IImagePathRepository.cs" />
     <Compile Include="Domain\Abstractions\IPetrolTypeRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
-    <Compile Include="Domain\AdditionalClasses\ImagesAndCars.cs" />
     <Compile Include="Domain\AdditionalClasses\ObserverHelper.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
     <Compile Include="Domain\ViewModels\FilterUserControlViewModel.cs" />

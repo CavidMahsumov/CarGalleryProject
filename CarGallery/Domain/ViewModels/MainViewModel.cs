@@ -3,7 +3,6 @@ using CarGallerry.Domain.AdditionalClasses;
 using CarGallerry.Views;
 using CarGallery.DataAccess.SqlServer;
 using CarGallery.Domain.Abstractions;
-using CarGallery.Domain.AdditionalClasses;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,8 +21,6 @@ namespace CarGallerry.Domain.ViewModels
         public IRepository<Car> _repo { get; set; }
         public ObservableCollection<Car> Cars { get; set; }
         public CarsRepository carsRepository { get; set; }
-        public ObservableCollection<ImagePath> Images { get; set; }
-        public ObservableCollection<ImagesAndCars> ImagesAndCars { get; set; }
 
 
 
@@ -38,9 +35,6 @@ namespace CarGallerry.Domain.ViewModels
               });
             carsRepository = new CarsRepository();
             Cars = carsRepository.GetAllData();
-            Images = ObserverHelper.ToObservableCollection(carsRepository.GetAllData().Select(i => i.ImagePath));
-            ;
-            ImagesAndCars = new ObservableCollection<ImagesAndCars>();
 
     
 

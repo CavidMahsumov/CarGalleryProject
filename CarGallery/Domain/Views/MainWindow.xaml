@@ -20,7 +20,7 @@
         <Image x:Name="image1" Grid.Column="0" >
             
         </Image>
-        <ListBox  Name="Listbox" Grid.Column="1" ItemsSource="{Binding ImagesAndCars}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListBox  Name="Listbox" Grid.Column="1" ItemsSource="{Binding Cars}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -42,12 +42,12 @@
                                     <RowDefinition Height="3*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <StackPanel Grid.Row="0" >
-                                    <Image x:Name="Image" Width="150" Height="150" Margin="0,8,0,0"  Source="{Binding Path=Paths.Path}"></Image>
+                                    <Image x:Name="Image" Width="150" Height="150" Margin="0,8,0,0"  Source="{Binding Path=ImagePath.Path}"></Image>
                                     <Label Width="200" Height="5" Background="Red" Margin="0,4,0,0"></Label>
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Orientation="Vertical" >
-                                    <TextBlock x:Name="ProductNameText" Text="{Binding Path=Cars.Name}" FontSize="14" Foreground="#FF25BFBF" FontWeight="Bold" Width="180" Height="20" Margin="5,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-                                    <TextBlock  x:Name="ProductPriceText" Text="{Binding Path=Cars.Price}" FontSize="14" Foreground="#FF25BFBF" FontWeight="Bold" Width="180" Height="20" Margin="5,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock x:Name="ProductNameText" Text="{Binding Path=Brand.Name}" FontSize="14" Foreground="Black" FontWeight="Bold" Width="180" Height="20" Margin="5,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                    <TextBlock  x:Name="ProductPriceText" Text="{Binding Path=Price}" FontSize="14" Foreground="Black" FontWeight="Bold" Width="180" Height="20" Margin="5,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
                                 </StackPanel>
                                 <WrapPanel  Grid.Row="1">
 

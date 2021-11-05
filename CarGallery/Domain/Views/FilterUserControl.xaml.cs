@@ -19,10 +19,12 @@ namespace CarGallerry.Views
     /// </summary>
     public partial class FilterUserControl : UserControl
     {
+   
         public FilterUserControl()
         {
             InitializeComponent();
-            DataContext = new FilterUserControlViewModel();
+            DataContext = new FilterUserControlViewModel(this);
+
         }
     }
 }

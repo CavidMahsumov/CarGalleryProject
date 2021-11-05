@@ -14,7 +14,7 @@
             <ComboBox Name="markaCmbbx"
                       FontSize="25"
                       Width="200"
-                      Margin="10,4,0,4"></ComboBox>
+                      Margin="10,4,0,4" ></ComboBox>
         </WrapPanel>
 
         <WrapPanel Margin="0,0,0,20">

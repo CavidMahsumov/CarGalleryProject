@@ -29,8 +29,10 @@ namespace CarGallery.DataAccess.SqlServer
 
         public ObservableCollection<Car> GetAllData()
         {
-            var cars = from c in DataContext.Cars
-                       select c;
+            var cars = from contact in DataContext.Cars
+                       //join dealer in DataContext.Brands on contact.Brand_Id equals dealer.Id
+                       //join images in DataContext.ImagePaths on contact.ImagePath_Id equals images.Id
+                       select contact;
             return ObserverHelper.ToObservableCollection(cars);
         }
 
