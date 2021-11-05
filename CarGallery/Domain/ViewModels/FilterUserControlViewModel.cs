@@ -1,4 +1,5 @@
-﻿using CarGallerry.Views;
+﻿using CarGallerry.Commands;
+using CarGallerry.Views;
 using CarGallery.DataAccess.SqlServer;
 using CarGallery.Domain.Abstractions;
 using System;
@@ -17,6 +18,7 @@ namespace CarGallerry.Domain.ViewModels
         public ObservableCollection<Brand> Brands { get; set; }
         public ObservableCollection<BanType> BanTypes { get; set; }
         public ObservableCollection<CarColor> CarColors { get; set; }
+        public RelayCommand SearchBtnClick { get; set; }
         public FilterUserControlViewModel(FilterUserControl filterUserControl,BrandsRepository brandsRepository,
             CarColorsRepository carColorsRepository,BanTypesRepository banTypesRepository)
         {
@@ -30,6 +32,13 @@ namespace CarGallerry.Domain.ViewModels
             filterUserControl.markaCmbbx.ItemsSource = _Brandsrepo.GetAllData().Select(b=>b.Name);
             filterUserControl.colorCmbbx.ItemsSource = _CarColorsrepo.GetAllData().Select(c => c.Name);
             filterUserControl.banTypeCmbbx.ItemsSource = _BanTypesrepo.GetAllData().Select(b => b.Name);
+
+            SearchBtnClick = new RelayCommand((sender) =>
+            {
+
+
+
+            });
         }
     }
 }
