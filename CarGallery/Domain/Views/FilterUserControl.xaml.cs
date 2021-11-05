@@ -1,4 +1,5 @@
 ﻿using CarGallerry.Domain.ViewModels;
+using CarGallery.DataAccess.SqlServer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +24,7 @@ namespace CarGallerry.Views
         public FilterUserControl()
         {
             InitializeComponent();
-            DataContext = new FilterUserControlViewModel(this);
+            DataContext = new FilterUserControlViewModel(this,new BrandsRepository(),new CarColorsRepository(),new BanTypesRepository());
 
         }
     }
