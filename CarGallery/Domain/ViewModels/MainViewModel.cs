@@ -3,6 +3,7 @@ using CarGallerry.Domain.AdditionalClasses;
 using CarGallerry.Views;
 using CarGallery.DataAccess.SqlServer;
 using CarGallery.Domain.Abstractions;
+using CarGallery.Domain.AdditionalClasses;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,17 +36,14 @@ namespace CarGallerry.Domain.ViewModels
               });
             carsRepository = new CarsRepository();
             Cars = carsRepository.GetAllData();
-
+            ClassHelper.mainWindow = mainWindow ;
+            ClassHelper.Cars = Cars;
     
 
 
         }
-        private Uri ConvertToLink(string path)
-        {
-            Uri uri = new Uri(path);
-            return uri;
+        
 
-        }
         
     }
 }

@@ -27,5 +27,7 @@ namespace CarGallerry.Views
             DataContext = new FilterUserControlViewModel(this,new BrandsRepository(),new CarColorsRepository(),new BanTypesRepository());
 
         }
+
+     
     }
 }
