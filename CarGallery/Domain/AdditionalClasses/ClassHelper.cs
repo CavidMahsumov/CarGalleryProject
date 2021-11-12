@@ -13,10 +13,12 @@ namespace CarGallery.Domain.AdditionalClasses
     {
        static  public MainWindow  mainWindow{ get; set; }
         static public ObservableCollection<Car> Cars { get; set; }
+        static public ObservableCollection<Car> Cars1 { get; set; }
         public ClassHelper()
         {
             mainWindow = new MainWindow();
             Cars = new ObservableCollection<Car>();
+            Cars1 = new ObservableCollection<Car>();
         }
     }
 }

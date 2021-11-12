@@ -70,11 +70,7 @@
                      Width="50"
                      FontSize="20"
                      Margin="10,4,0,4">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="TextChanged">
-                        <i:InvokeCommandAction Command="{Binding MilageMinTextChangedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                
             </TextBox>
             <Label Content="max"
                    FontSize="15"
@@ -84,11 +80,7 @@
                      Width="50"
                      FontSize="20"
                      Margin="10,4,0,4">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="TextChanged">
-                        <i:InvokeCommandAction Command="{Binding MilageMaxTextChangedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+
             </TextBox>
         </WrapPanel>
         <WrapPanel Margin="0,0,0,20">
@@ -104,11 +96,7 @@
                      Width="50"
                      FontSize="20"
                      Margin="10,4,0,4">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="TextChanged">
-                        <i:InvokeCommandAction Command="{Binding PriceMinTextChangedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                
                 
             </TextBox>
             <Label Content="max"
@@ -119,11 +107,7 @@
                      Width="50"
                      FontSize="20"
                      Margin="10,4,0,4">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="TextChanged">
-                        <i:InvokeCommandAction Command="{Binding PriceMaxTextChangedCommand}"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+               
             </TextBox>
         </WrapPanel>
         <WrapPanel Margin="0,0,0,20">
@@ -184,6 +168,6 @@
                 Width="200"
                 HorizontalAlignment="Left"
                 Margin="10,4,0,4"
-                FontFamily="comic sans ms"></Button>
+                FontFamily="comic sans ms" Command="{Binding SearchBtnClick}"></Button>
     </StackPanel>
 </UserControl>

@@ -27,6 +27,35 @@ namespace CarGallerry.Domain.ViewModels
         public RelayCommand PriceMinTextChangedCommand { get; set; }
         public RelayCommand PriceMaxTextChangedCommand { get; set; }
         public ObservableCollection<Car> Cars { get; set; }
+        private bool isBenzin;
+
+        public bool IsBenzin
+        {
+            get { return isBenzin; }
+            set { isBenzin = value; OnPropertyChanged(); }
+        }
+        private bool isDizel;
+
+        public bool IsDizel
+        {
+            get { return isDizel; }
+            set { isDizel = value; OnPropertyChanged(); }
+        }
+        private bool IsBenzin;
+
+        public bool IsBenzin
+        {
+            get { return isBenzin; }
+            set { isBenzin = value; OnPropertyChanged(); }
+        }
+        private bool isBenzin;
+
+        public bool IsBenzin
+        {
+            get { return isBenzin; }
+            set { isBenzin = value; OnPropertyChanged(); }
+        }
+
         public FilterUserControlViewModel(FilterUserControl filterUserControl, BrandsRepository brandsRepository,
             CarColorsRepository carColorsRepository, BanTypesRepository banTypesRepository)
         {
@@ -45,6 +74,13 @@ namespace CarGallerry.Domain.ViewModels
             SearchBtnClick = new RelayCommand((sender) =>
             {
 
+                ClassHelper.Cars1 = ObserverHelper.ToObservableCollection(Cars.Where(c => c.Milage.Value >= decimal.Parse(filterUserControl.minTxtbx.Text)
+                && c.Milage.Value <= decimal.Parse(filterUserControl.maxTxtbx.Text)
+                && c.Price.Value >= decimal.Parse(filterUserControl.minPriceTxtbx.Text)
+                && c.Price.Value <= decimal.Parse(filterUserControl.maxPriceTxtbx.Text) && c.IsNew == filterUserControl.newRadiobtn.IsChecked));
+
+               ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where())
+               ClassHelper.mainWindow.Listbox.ItemsSource = ClassHelper.Cars1;
 
 
             });
@@ -86,53 +122,7 @@ namespace CarGallerry.Domain.ViewModels
                 }
 
             });
-            MilageMaxTextChangedCommand = new RelayCommand((sender) =>
-            {
-                try
-                {
-                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where(c => c.Milage.Value <= decimal.Parse(filterUserControl.maxTxtbx.Text)));
-                }
-                catch (Exception)
-                {
 
-                }
-
-            });
-            MilageMinTextChangedCommand = new RelayCommand((sender) =>
-            {
-                try
-                {
-                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where(c => c.Milage >= decimal.Parse(filterUserControl.minTxtbx.Text)));
-                }
-                catch (Exception)
-                {
-
-                }
-
-            });
-            PriceMaxTextChangedCommand = new RelayCommand((sender) =>
-            {
-
-                try
-                {
-                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where(c => c.Price <= decimal.Parse(filterUserControl.maxPriceTxtbx.Text)));
-                }
-                catch (Exception)
-                {
-
-                }
-            });
-            PriceMinTextChangedCommand = new RelayCommand((sender) =>
-            {
-                try
-                {
-                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where(c => c.Price >= decimal.Parse(filterUserControl.minPriceTxtbx.Text)));
-                }
-                catch (Exception)
-                {
-
-                }
-            });
 
         }
     }
