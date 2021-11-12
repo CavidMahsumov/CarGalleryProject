@@ -124,44 +124,29 @@
         <WrapPanel Margin="0,0,0,20">
             <CheckBox x:Name="benzinCheckBox"
                       VerticalAlignment="Center"
-                      FontSize="100"
-                      Margin="10,4,0,4"></CheckBox>
-            <Label Content="Benzin"
-                   VerticalContentAlignment="Bottom"
-                   FontSize="15"
-                   FontFamily="comic sans ms"></Label>
+                      FontSize="15"
+                      Margin="10,4,0,4" Content="Benzin" IsChecked="{Binding IsBenzin}"></CheckBox>
+           
             <CheckBox x:Name="dizelCheckBox"
                       VerticalAlignment="Center"
                       FontSize="15"
-                      Margin="10,4,0,4"></CheckBox>
-            <Label Content="Dizel"
-                   VerticalContentAlignment="Bottom"
-                   FontSize="15"
-                   FontFamily="comic sans ms"></Label>
+                      Margin="10,4,0,4" Content="Dizel"></CheckBox>
+           
             <CheckBox x:Name="hybridCheckBox"
                       VerticalAlignment="Center"
                       FontSize="15"
-                      Margin="10,4,0,4"></CheckBox>
-            <Label Content="Hybrid"
-                   VerticalContentAlignment="Bottom"
-                   FontSize="15"
-                   FontFamily="comic sans ms"></Label>
+                      Margin="10,4,0,4" Content="Hybrid" IsChecked="{Binding IsHybrid}"></CheckBox>
+            
             <CheckBox x:Name="gasCheckBox"
                       VerticalAlignment="Center"
                       FontSize="15"
-                      Margin="10,4,0,4"></CheckBox>
-            <Label Content="Gas"
-                   VerticalContentAlignment="Bottom"
-                   FontSize="15"
-                   FontFamily="comic sans ms"></Label>
+                      Margin="10,4,0,4" Content="Gas"></CheckBox>
+          
             <CheckBox x:Name="electroCheckBox"
                       VerticalAlignment="Center"
                       FontSize="15"
-                      Margin="10,4,0,4"></CheckBox>
-            <Label Content="Electro"
-                   VerticalContentAlignment="Bottom"
-                   FontSize="15"
-                   FontFamily="comic sans ms"></Label>
+                      Margin="10,4,0,4" Content="Electro"></CheckBox>
+           
         </WrapPanel>
         <Button Content="Axtar"
                 FontSize="30"

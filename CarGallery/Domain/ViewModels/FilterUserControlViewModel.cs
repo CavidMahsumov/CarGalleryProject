@@ -41,19 +41,27 @@ namespace CarGallerry.Domain.ViewModels
             get { return isDizel; }
             set { isDizel = value; OnPropertyChanged(); }
         }
-        private bool IsBenzin;
+        private bool isHybrid;
 
-        public bool IsBenzin
+        public bool IsHybrid
         {
-            get { return isBenzin; }
-            set { isBenzin = value; OnPropertyChanged(); }
+            get { return isHybrid; }
+            set { isHybrid = value; OnPropertyChanged(); }
         }
-        private bool isBenzin;
+        private bool isGas;
 
-        public bool IsBenzin
+        public bool IsGas
         {
-            get { return isBenzin; }
-            set { isBenzin = value; OnPropertyChanged(); }
+            get { return isGas; }
+            set { isGas = value; OnPropertyChanged(); }
+        }
+
+        private bool isElectro;
+
+        public bool IsElectro
+        {
+            get { return isElectro; }
+            set { isElectro = value; OnPropertyChanged(); }
         }
 
         public FilterUserControlViewModel(FilterUserControl filterUserControl, BrandsRepository brandsRepository,
@@ -79,9 +87,16 @@ namespace CarGallerry.Domain.ViewModels
                 && c.Price.Value >= decimal.Parse(filterUserControl.minPriceTxtbx.Text)
                 && c.Price.Value <= decimal.Parse(filterUserControl.maxPriceTxtbx.Text) && c.IsNew == filterUserControl.newRadiobtn.IsChecked));
 
-               ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(Cars.Where())
-               ClassHelper.mainWindow.Listbox.ItemsSource = ClassHelper.Cars1;
+                if (IsBenzin&&IsHybrid)
+                {
+                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(ClassHelper.Cars1.Where(c=>c.PetrolType.Name=="Benzin"||c.PetrolType.Name== "Hybrid"));
+                }
+                else if (IsHybrid)
+                {
 
+                    ClassHelper.mainWindow.Listbox.ItemsSource = ObserverHelper.ToObservableCollection(ClassHelper.Cars1.Where(c => c.PetrolType.Name == "Hybrid"));
+
+                }
 
             });
             MarkoComboBoxSelectionChanged = new RelayCommand((sender) =>
